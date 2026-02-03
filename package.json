@@ -16,7 +16,7 @@
         "backup-package-json": "cp package.json package-orig.json",
         "reset-package-json": "cp package-orig.json package.json",
         "start": "webpack serve",
-        "start-server": "nodemon app.js",
+        "start-server": "nodemon src/servers/app.js",
         "lint": "eslint src/**",
         "lint-fix": "eslint --fix src/**",
         "git-reset": "git reset --soft HEAD~1",

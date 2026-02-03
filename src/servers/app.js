@@ -14,8 +14,8 @@ import xml2js from 'xml2js';
 import { point } from "@turf/helpers";
 import { polygon } from "@turf/helpers";
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
-import District from './src/js/utils/District.js';
-import Geocoder from './src/js/utils/Geocoder.js';
+import District from '../js/utils/District.js';
+import Geocoder from '../js/utils/Geocoder.js';
 
 const app = express();
 const port = process.env.PORT || 80;
@@ -277,7 +277,7 @@ app.get("/kml/senate/districts", (req, res) => {
 app.get("/kml/house/:district", (req, res) => {
 
     // Load the XML in a parser.
-    const text = fs.readFileSync(`./data/geo/house-district-${req.params.district}.txt`, 'utf8').trim();
+    const text = fs.readFileSync(`./src/data/geo/house-district-${req.params.district}.txt`, 'utf8').trim();
 
     // parse "lng,lat" pairs separated by whitespace into [{lat, lng}, ...]
     let coords = text.split(/\s+/).map(pair => {
@@ -298,7 +298,7 @@ app.get("/kml/house/:district", (req, res) => {
 
 
 function loadHouseDistricts() {
-    const geojsonHouse = fs.readFileSync(`./data/geo/house-districts.geojson`, 'utf8').trim();
+    const geojsonHouse = fs.readFileSync(`./src/data/geo/house-districts.geojson`, 'utf8').trim();
 
     // parse "lng,lat" pairs separated by whitespace into [{lat, lng}, ...]
     let housecoords = JSON.parse(geojsonHouse);
@@ -312,7 +312,7 @@ function loadHouseDistricts() {
 
 
 function loadSenateDistricts() {
-    const geojsonSenate = fs.readFileSync(`./data/geo/senate-districts.geojson`, 'utf8').trim();
+    const geojsonSenate = fs.readFileSync(`./src/data/geo/senate-districts.geojson`, 'utf8').trim();
 
     // parse "lng,lat" pairs separated by whitespace into [{lat, lng}, ...]
     let senatecoords = JSON.parse(geojsonSenate);
