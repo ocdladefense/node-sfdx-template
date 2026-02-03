@@ -132,7 +132,7 @@ export default env => {
                         to: path.resolve(__dirname, "dist/images")
                     },
                     {
-                        from: path.resolve(__dirname, "data"),
+                        from: path.resolve(__dirname, "src/data"),
                         to: path.resolve(__dirname, "dist/data")
                     },
                     "src/.nojekyll",
