@@ -1,5 +1,5 @@
-import useModal from './hooks/useModal.js';
-import Modal from './ui/Modal.jsx';
+import useModal from '../hooks/useModal.js';
+import Modal from './Modal.jsx';
 
 
 const ProductionSites = [

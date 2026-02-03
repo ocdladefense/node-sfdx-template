@@ -1,5 +1,5 @@
 
-import LookupTable from '../components/districts/LookupTable.jsx';
+import LookupTable from './components/districts/LookupTable.jsx';
 import domReady from './utils/domReady.js';
 
 

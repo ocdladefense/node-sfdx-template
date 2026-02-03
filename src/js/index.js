@@ -5,8 +5,8 @@ import { useLocation } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './components/App.jsx';
 import Sites from './components/ui/Sites.jsx';
-import LegislativeAction from './components/LegislativeAction.jsx';
-import LegislativeActionHome from './components/LegislativeActionHome.jsx';
+import LegislativeAction from './components/legislative/LegislativeAction.jsx';
+import LegislativeActionHome from './components/legislative/LegislativeActionHome.jsx';
 
 if (process.env.NODE_ENV === 'debug')
 {
