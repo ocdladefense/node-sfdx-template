@@ -3,13 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from '../components/App.jsx';
-import BookCovers from '../components/BookCovers.jsx';
-import BonLayout from '../components/Layout.jsx';
-import Sites from '../components/Sites.jsx';
-import FormbookLayout from '../components/formbook/Layout.jsx';
-import LegislativeAction from '../components/LegislativeAction.jsx';
-import LegislativeActionHome from '../components/LegislativeActionHome.jsx';
+import App from './components/App.jsx';
+import Sites from './components/ui/Sites.jsx';
+import LegislativeAction from './components/LegislativeAction.jsx';
+import LegislativeActionHome from './components/LegislativeActionHome.jsx';
 
 if (process.env.NODE_ENV === 'debug')
 {

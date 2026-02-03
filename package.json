@@ -1,7 +1,7 @@
 {
-    "name": "myapp",
+    "name": "NodeJS-Salesforce-Project-Template",
     "version": "0.1.0",
-    "description": "My app.",
+    "description": "A project template to facilitate NodeJS and Salesforce integrations.",
     "main": "index.js",
     "type": "module",
     "scripts": {

@@ -1,7 +1,8 @@
 
 
-# Books Online for OCDLA.
-View and purchase OCDLA Books Online products.
+# NodeJS and Salesforce integrations.
+A project template for NodeJS and Salesforce integrations.
+
 
 ## Salesforce
 Parts of this project may require the Salesforce REST API.
@@ -21,6 +22,7 @@ _Note: A secret is necessary to utilitze GitHub's Deploy to GitHub Pages functio
  * sudo npm install -g nodemon
  * nodemon app.js
 
+
 ## Running the app
 _Note: This project can be run in two target environments: <code>npm run watch</code> and <code>nodemon</code>.  TODO: additional instructions should be provided here about how this works in practice and how commands affect the target environment._
 ### Node express environment:
@@ -29,11 +31,13 @@ _Note: This project can be run in two target environments: <code>npm run watch</
 3. Disable any already-running server software (these will conflict with the port 80 config of Express server).
 4. Navigate to [http://localhost](http://localhost).
 
+
 ## Using PM2
 Use <code>pm2</code> to run this server as a daemon.
 * <code>sudo pm2 status</code> - Show the status of currently running node servers.
 * <code>sudo pm2 restart [app-name]</code> - Restart an app that has been updated.
 * <code>sudo pm2 logs [app-name]</code> - Show the stdout and stderr logs for the specified app.
+
 
 ### Webpack server environment:
 1. Preview the base website using <code>npm run watch</code>.
@@ -84,17 +88,3 @@ Git submodules can be added to this repository using the <code>git submodule add
 * https://www.material-tailwind.com/blocks
 * https://sentry.io/answers/how-to-change-the-css-background-opacity-of-an-element/
 * Adobe Express
-
-## Citation parser
-1. Identify the correct repositories
-  * [<code>@ocdladefense/babel-webpack-javascript-template</code>](https://github.com/ocdladefense/babel-webpack-javascript-template)
-  * 
-
-
-## @TODO
-* Data - The <code>data/</code> directory contains project data that properly belongs to the root repository.
-* <code>Breadcrumbs.jsx</code> - The <code>separator</code> variable is calculated internally, but should be passed in as a parameter so that an application can render a breadcrumb trail with any separator.
-* <code>Hyperlink.jsx</code> - The <code>switch</code> statement may be encoding JSX elements that could be made more explicit through top-level components.
-* <code>Body.jsx</code>
-* <code>dist/sw.js</code> - Add a Service Worker.
-# node-sfdx-template
