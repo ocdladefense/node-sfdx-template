@@ -19,12 +19,10 @@ _Note: A secret is necessary to utilitze GitHub's Deploy to GitHub Pages functio
 3. Run <code>npm update</code>.
 4. Run <code>npm run build</code>.
 5. Optionally run any required server processes
- * sudo npm install -g nodemon
- * nodemon app.js
+ ** For example, <code>pm2 start [appname]</code>
 
 
 ## Running the app
-_Note: This project can be run in two target environments: <code>npm run watch</code> and <code>nodemon</code>.  TODO: additional instructions should be provided here about how this works in practice and how commands affect the target environment._
 ### Node express environment:
 1. Run <code>npm run build-prod</code> to build the appropriate code in <code>dist/</code>.
 2. Run <code>npm run start-server</code>.
@@ -43,18 +41,6 @@ Use <code>pm2</code> to run this server as a daemon.
 1. Preview the base website using <code>npm run watch</code>.
 
 # Additional resources
-
-## Salesforce - Apex REST endpoints
-* Exercise: Participate and take notes on "Creating Apex Classes" (in-meeting) tutorial.
-  * Duplicate and recreate the <code>AwsSns</code> Apex class.
-  * Duplicate and recreate the <code>AwsSnsTest</code> Apex test class.
-* Review the layout and content of Salesforce's ["Exposing Apex Classes as REST Web Services"](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_rest.htm)
-* Create an Apex class (either in the GUI or in VSCode)
-* Annotate the Apex class consistent with the above Salesforce recommendations in "Exposing Apex Classes".
-* Find an existing Apex REST class; use this class as an example for development.
-* Document the location of the <code>@ocdla/salesforce</code> package in <code>dev_modules/</code>.
-* Document the current use of the related <code>SalesforceRestApi</code> class, especially in <code>components/App.jsx</code> in <code>getVideoParser()</code>.
-
 
 ## Babel transpiling
 * [Babel online parser](https://babeljs.io/repl/#?browsers=defaults)
