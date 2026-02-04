@@ -21,6 +21,21 @@ const app = express();
 const port = process.env.PORT || 80;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const SF_ACCESS_TOKEN = process.env.SF_OAUTH_SESSION_ACCESS_TOKEN_OVERRIDE;
+let houseDistricts, senateDistricts;
+
+
+// Serve static files from the 'dist' directory
+app.use(express.static('dist'));
+app.use(cookieParser());
+app.use(express.json());
+
+// Load house and senate district data.
+loadHouseDistricts();
+loadSenateDistricts();
+
+
+
 
 
 function iterateDirectorySync(directoryPath) {
@@ -55,19 +70,10 @@ function iterateDirectorySync(directoryPath) {
 }
 
 
-const SF_ACCESS_TOKEN = process.env.SF_OAUTH_SESSION_ACCESS_TOKEN_OVERRIDE;
 
 
-// Serve static files from the 'dist' directory
-app.use(express.static('dist'));
-app.use(cookieParser());
-app.use(express.json());
 
 
-let houseDistricts, senateDistricts;
-
-loadHouseDistricts();
-loadSenateDistricts();
 
 
 
@@ -327,63 +333,6 @@ function loadSenateDistricts() {
 
 
 
-const metaData = {
-    "1": "Chapter 1 Office Forms",
-    "2": "Chapter 2 Motions Against the Charging Instrument",
-    "3": "Chapter 3 Release From Custody",
-    "4": "Chapter 4 Notices",
-    "5": "Chapter 5 Dismissal of Charges",
-    "6": "Chapter 6 Psychiatric",
-    "7": "Chapter 7 Pretrial Motions",
-    "8": "Chapter 8 Discovery",
-    "9": "Chapter 9 Witnesses",
-    "10": "Chapter 10 Consolidation/Severance",
-    "11": "Chapter 11 Continuance",
-    "12": "Chapter 12 Change of Venue",
-    "13": "Chapter 13 Motion to Disqualify Judge",
-    "14": "Chapter 14 Withdrawal of Attorney",
-    "15": "Chapter 15 Jury Instructions",
-    "16": "Chapter 16 Special Problems",
-    "17": "Chapter 17 Sentencing, Dispositional, and Post-Trial Matters",
-    "18": "Chapter 18 Appeals",
-    "19": "Chapter 19 Habeus Corpus"
-};
-
-
-app.get("/toc/tnb", (req, res) => {
-
-
-    res.json(tnb);
-});
-
-
-
-
-app.get("/toc/clfb/:chapterNumber", (req, res) => {
-
-    let meta = {};
-    let chapter = req.params.chapterNumber;
-
-
-    let chapterName = metaData[chapter];
-    let chapterPath = `./data/clfb/${chapter}`;
-    let chapterFiles = iterateDirectorySync(chapterPath);
-    meta.name = chapterName;
-    meta.files = chapterFiles;
-
-
-    res.json(meta);
-});
-
-
-app.get("/books", (req, res) => {
-
-    let books = fs.readFileSync('./data/books.xml');
-
-    res.setHeader('Content-Type', 'application/xml');
-    res.send(books);
-});
-
 // Todo, turn this into a POST endpoint.
 app.get("/introspect", async (req, res) => {
 
@@ -533,8 +482,3 @@ app.all('/{*any}', (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
-
-
-
-// https://ocdla--ocdpartial.sandbox.my.site.com/services/oauth2/authorize
-
