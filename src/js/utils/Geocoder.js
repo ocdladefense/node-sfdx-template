@@ -4,7 +4,7 @@
 import { Client } from "@googlemaps/google-maps-services-js";
 
 const client = new Client({});
-const API_KEY = "AIzaSyCfWNi-jamfXgtp5iPBLn63XV_3u5RJK0c";
+const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
 export default class Geocoder {
     static async geocodeAddress(address) {
