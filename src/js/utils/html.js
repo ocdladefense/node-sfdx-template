@@ -20,12 +20,15 @@ export default function waitUntil(func, wait) {
 export function injectScriptElement(src) {
     let tag = document.createElement('script');
     tag.src = src;
+    tag.async = true;
 
     let firstScriptTag = document.getElementsByTagName('script')[0];
-    if (firstScriptTag == null) {
+    if (firstScriptTag == null)
+    {
         (document.body || document.head).appendChild(tag);
     }
-    else {
+    else
+    {
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     }
 
